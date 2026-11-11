@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: arial, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    color: white;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+header{
+    color: #bdc9d6;
+    margin: 1em 0;
+}
+header h1{
+    font-size: 2.5rem;
+}
+header p{
+    /* font-size: 1.2rem; */
+    color: #bdc9d6;
+}
+.game{
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    color: #222;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+#sudoku-grid{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 5px;
+    width: 100%;
+    aspect-ratio: 1;
+    border: 3px solid #243b55;
+}
+.cell{
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1;
+    text-align: center;
+    font-size: clamp(14px, 4vw, 22px);
+    font-weight: bold;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    color: #2563eb;
+}
+.cell:focus{
+    background: #dbeafe;
+}
+.cell:nth-child(3n){
+    border-right: 3px solid #243b55;
+}
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54){
+    border-bottom: 3px solid #243b55;
+}
+.cell.given{
+    color: #172033;
+    background: #e2f2f7;
+}
+.cell.invalid{
+    color: #fecaca;
+    background: #de2626;
+}
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+button{
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+button:hover{
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+#solve{
+    background: #2563eb;
+    color: white;
+}
+#validate{
+    background: #16a34a;
+    color: white;
+}
+#reset{
+    background: #f59e0b;
+    color: white;
+}
+#clear{
+    background: #ef4444;
+    color: white;
+}
+#message{
+    margin-top: 18px;
+    font-size: 1.2rem;
+    color:#475569;
+    min-height: 1.5rem;
+}
+footer{
+    margin: 20px 0px;
+    font-size: 13px;
+    color: #aab8ca;
+}
+@media (max-width: 400px){
+    .game{
+        padding: 15px;
+    }
+    header h1{
+        font-size: 2rem;
+    }
+}
